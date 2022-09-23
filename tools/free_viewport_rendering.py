@@ -62,7 +62,7 @@ def spiral_render(args):
     focus_distance = (far - near) * 0.7 + near
 
     # calculate spiral path
-    render_c2ws = c2w_track_spiral(c2w_center, up, rads, focus_distance, zrate=0.5, rots=2, N=100)
+    render_c2ws = c2w_track_spiral(c2w_center, up, rads, focus_distance, zrate=0.5, rots=1, N=50)
     render_c2ws = np.stack(render_c2ws, 0)
 
     rgbs, depths = render_full(intr, render_c2ws, H, W, near, far, render_kwargs_test, model, device, batch_size=4)
